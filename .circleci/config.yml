@@ -15,7 +15,6 @@ jobs:
             export DEBIAN_FRONTEND=noninteractive
             apt update && apt install -y shellcheck pre-commit git
             pre-commit run --all-files
-
   workspace-base:
     docker:
       - image: docker:stable
@@ -191,7 +190,6 @@ jobs:
           command: |
             docker load -i workspace-full.tar
             ./.circleci/build_image.sh mongodb/Dockerfile cmict/workspace-mongodb
-
   workspace-flutter:
     docker:
       - image: docker:stable
@@ -204,7 +202,6 @@ jobs:
           command: |
             docker load -i workspace-full.tar
             ./.circleci/build_image.sh flutter/Dockerfile cmict/workspace-flutter
-
   workspace-gecko:
     docker:
       - image: docker:stable
